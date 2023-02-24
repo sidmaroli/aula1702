@@ -3,4 +3,28 @@
     <h1>Produtos</h1>
     <p>Listagem de produtos</p>
 
+    <p>Última atualização {{ "now"|date('d/m/y H:i:s', 'America/Sao_Paulo') }}</p>
+
+    <table border="1">
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+        </tr>
+
+        {% for prod in produtos %}
+        <!-- Linha para repetição -->
+        <tr>
+            <td>{{ prod.nome }}</td>
+            <td>R$ {{ prod.preco|number_format(2, ',', '.') }}</td>
+        </tr>
+        <!-- Linha para repetição -->
+        {% else %}
+            <tr>
+                <td colspan="2">Nenhum produto</td>
+            </tr>
+        {% endfor %}
+        
+
+    </table>
+
 {% include "inc/footer.html" %}
