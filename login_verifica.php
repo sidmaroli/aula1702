@@ -1,14 +1,28 @@
 <?php
-
+require('pdo.inc.php');
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 
-if($user == 'ale' && $pass == '123'){
-    //Login foito com sucesso
+//cria aconsulta e aguarda os dados
+$sql = $pdo->prepare('SELECT * FROM usuarios WHERE username = :user AND senha = :pass');
+
+//adiciona os dados na consulta
+$sql->bindParam(':user', $user);
+$sql->bindParam(':pass', $pass);
+
+//roda consulta
+$sql->execute();
+
+
+//se encontrou o usuario
+if($sql->rowCount()){
+    //Login feito com sucesso
+
+    $user = $sql->fetch(PDO::FETCH_OBJ);
 
     //Cria uma sessão para armazenar o usuário
     session_start();
-    $_SESSION['user'] = 'Ale';
+    $_SESSION['user'] = $user->nome;
 
     //Redireciona 
     header('location: boasvindas.php');
