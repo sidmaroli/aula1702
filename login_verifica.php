@@ -4,11 +4,10 @@ $user = $_POST['user'];
 $pass = $_POST['pass'];
 
 //cria aconsulta e aguarda os dados
-$sql = $pdo->prepare('SELECT * FROM usuarios WHERE username = :user AND senha = :pass');
+$sql = $pdo->prepare('SELECT * FROM usuarios WHERE username = :user');
 
 //adiciona os dados na consulta
 $sql->bindParam(':user', $user);
-$sql->bindParam(':pass', $pass);
 
 //roda consulta
 $sql->execute();
@@ -19,6 +18,12 @@ if($sql->rowCount()){
     //Login feito com sucesso
 
     $user = $sql->fetch(PDO::FETCH_OBJ);
+
+    //verificar se a senha esta correta
+    if(!password_verify($pass, $user->senha)){
+    header('location: login.php?erro=1');
+    die;
+    }
 
     //Cria uma sessão para armazenar o usuário
     session_start();
