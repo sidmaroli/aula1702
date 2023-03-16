@@ -1,0 +1,25 @@
+{% include "inc/header.html" %}
+
+<h3>Usuarios</h3>
+<table border="1">
+<tr>
+<th>Nome</th>
+<th>Adimin</th>
+<th>Ativo</th>
+</tr>
+{% for usr in user %}
+        <!-- Linha para repetição -->
+        <tr>
+            <td>{{ usr.username }}</td>
+            <td>{{ usr.admin }}</td>
+            <td>{{ usr.ativo }}</td>
+            <td><a href="usuario_apagar.php?id={{usr.id}}">Apagar</a></td>
+        </tr>
+        <!-- Linha para repetição -->
+        {% else %}
+      
+        {% endfor %}
+</table>
+
+
+<a href="logout.php">Saida</a>

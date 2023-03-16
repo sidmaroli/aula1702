@@ -8,8 +8,8 @@
     <div><input type="email" name="email" placeholder="E-mail"></div>
     <div><input type="text" name="user" placeholder="Usuário"></div>
     <div><input type="password" name="pass" placeholder="Senha"></div>
-    <div>Aluno<input type="checkbox" name="adm" value="1"></div>
-    <div>Admin<input type="checkbox" name="adm" value="0"></div>
+    <div>Aluno<input type="checkbox" name="admin" value="1"></div>
+    <div>Admin<input type="checkbox" name="admin" value="0"></div>
 
     <div><input type="submit" value="Gravar"></div>
 
