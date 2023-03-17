@@ -2,8 +2,16 @@
 
 <h1>Apagar usuário</h1>
 
-<p>Tem certeza de que quer fazer isso</p>
+<p>Tem certeza de que quer fazer isso </p>
 <p>Nunca mais será possível recuperar este usuário</p>
+<p><strong>Você está prestes a apgar o usuario {{ usuario.username }}</strong></p>
+
+<form action="#" method="post">
+<input type="hidden" name="id" value="{{usuario.id}}">
+<input type="submit" value="Apagar">
+</form>
+
+<div><a href="usuarios.php">Cancelar</a></div>
 
 
 
