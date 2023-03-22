@@ -1,0 +1,13 @@
+{% if msg %}
+<div>
+    {{ msg }}
+</div>
+{% endif %}
+<form action="recuperar_senha.php" method="post">
+    <div>
+        <input type="text" name="username" placeholder="Digite seu usuername">
+    </div>
+    <div>
+        <input type="submit" value="Manda ver">
+    </div>
+</form>
