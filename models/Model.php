@@ -6,7 +6,7 @@ class Model{
     private $driver = 'mysql';
     private $host = 'localhost';
     private $dbname = 'sistematwig';
-    private $port = '3360';
+    private $port = '3306';
     private $user = 'root';
     private $password = null;
 
@@ -22,6 +22,15 @@ class Model{
     }
 
     public function getAll(){
-        
+        $sql = $this->conex->query("SELECT * FROM {$this->table}");
+
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getById($id){
+        $sql = $this->conex->prepare("SELECT * FROM {$this->table} WHERE id = :id");
+        $sql->bindParam(':id', $id);
+        $sql->execute();
+        return $sql->fetch(PDO::FETCH_ASSOC);
     }
 }
