@@ -1,8 +1,6 @@
-{% include "inc/header.html" %}
 
+{% extends  "inc/base.html"%}
 
-<p>{{usr.nome}}</p>
-<p>{{usr.username}}</p>
-<p>{{usr.email}}</p>
-
-{% include "inc/footer.html" %}
+{% block conteudo %}
+<p>Uresname: {{usuario.nome}}</p>
+{% endblock %}

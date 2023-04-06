@@ -1,5 +1,6 @@
 <?php
-require('pdo.inc.php');
+require('models/Model.php');
+require('models/Usuario.php');
 
 $nome = $_POST['nome'] ?? false;
 $user = $_POST['user'] ?? false;
@@ -14,15 +15,14 @@ if(!$user || !$pass){
 
 $pass = password_hash($pass, PASSWORD_BCRYPT);
 
-$sql = $pdo->prepare('INSERT INTO usuarios (nome, email, username, senha, admin, ativo) VALUES(:nome, :email, :user, :pass, :admin, 1)');
+$usr = new Usuario();
+$usr->create([
+    'nome' => $nome,
+    'username' => $user,
+    'email' => $email,
+    'senha' => $pass,
+    'admin' => $admin,
+    'ativo' => 1,
+]);
 
-$sql->bindParam(':user', $user);
-$sql->bindParam(':pass', $pass);
-$sql->bindParam(':nome', $nome);
-$sql->bindParam(':email', $email);
-$sql->bindParam(':admin', $admin);
-
-
-$sql->execute();
-
-header('location: login.php');
+header('location: usuarios.php');
