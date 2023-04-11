@@ -38,12 +38,7 @@ class Model{
         //inicia a contrução do sql
         $sql = "INSERT INTO {$this->table} ";
 
-
-        //prepara os campos e placeholders
-        foreach(array_keys($data) as $field){
-            $sql_fields[] = "{$field} = :{$field}";
-        }
-        $sql_fields = implode(', ', $sql_fields);
+        $sql_fields = $this->sql_fields($data); 
 
         $sql .= " SET {$sql_fields}";
         $insert = $this->conex->prepare($sql);
@@ -56,5 +51,18 @@ class Model{
         return $insert->errorInfo();
 
         die;
+    }
+
+    public function update($data, $id){
+
+    }
+
+    private function sql_fields($data){
+        //prepara os campos e placeholders
+        foreach(array_keys($data) as $field){
+            $sql_fields[] = "{$field} = :{$field}";
+        }
+
+        return implode(', ', $sql_fields);
     }
 }
