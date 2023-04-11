@@ -3,4 +3,23 @@
 
 {% block conteudo %}
 <p>Uresname: {{usuario.nome}}</p>
+
+<form action="usuario_atualiza.php" method="POST">
+    <input type="hidden" name="id" value="{{usuario.id}}">
+    <div>
+    Nome:
+        <input type="text" name="nome" value="{{usuario.nome}}">
+    </div>
+    <div>
+    E-mail:
+        <input type="text" name="email" value="{{usuario.email}}">
+    </div>
+    <div>
+    Usename:
+        <input type="text" name="username" value="{{usuario.username}}">
+    </div>
+    <input type="submit" value="Atualizar">
+    
+</form>
+
 {% endblock %}
