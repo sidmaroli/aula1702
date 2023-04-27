@@ -1,6 +1,10 @@
-{% include "inc/header.html" %}
+{% extends "inc/base.html" %}
 
-<h3>Usuarios</h3>
+
+{% block titulo %}Usuário{% endblock %}
+
+{% block conteudo %}
+
 <table border="1">
 <tr>
 <th>Nome</th>
@@ -10,10 +14,10 @@
 {% for usr in user %}
         <!-- Linha para repetição -->
         <tr>
-            <td><a href="usuario_ver.php?id={{usr.id}}">{{ usr.username }}</td>
+            <td><a href="/usuario_ver/{{usr.id}}">{{ usr.username }}</td>
             <td>{{ usr.admin }}</td>
             <td>{{ usr.ativo }}</td>
-            <td><a href="usuario_apagar.php?id={{usr.id}}">Apagar</a></td>
+            <td><a href="/usuario_apagar/{{usr.id}}">Apagar</a></td>
         </tr>
         <!-- Linha para repetição -->
         {% else %}
@@ -23,3 +27,5 @@
 
 
 <a href="logout.php">Saida</a>
+
+{% endblock %}

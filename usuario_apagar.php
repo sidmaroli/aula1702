@@ -8,10 +8,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     //Modifica o usuário para ativo = 0
     $id = $_POST['id'] ?? false;
     if($id){
-        $sql = $pdo->prepare('UPDATE usuarios SET ativo = 0 WHERE id = ?');
+        $sql = $pdo->prepare('DELETE FROM usuarios WHERE id = ?');
         $sql->execute([$id]);
     }
-    header('location: usuarios.php');
+    header('location: /usuarios');
     die;
 }
 

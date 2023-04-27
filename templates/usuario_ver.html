@@ -4,7 +4,7 @@
 {% block conteudo %}
 <p>Uresname: {{usuario.nome}}</p>
 
-<form action="usuario_atualiza.php" method="POST">
+<form action="/usuario_atualiza" method="POST">
     <input type="hidden" name="id" value="{{usuario.id}}">
     <div>
     Nome:
