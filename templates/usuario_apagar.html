@@ -1,4 +1,6 @@
-{% include "inc/header.html" %}
+{% extends "inc/base.html" %}
+
+{% block conteudo %}
 
 <h1>Apagar usuário</h1>
 
@@ -13,6 +15,4 @@
 
 <div><a href="/usuarios">Cancelar</a></div>
 
-
-
-{% include "inc/footer.html" %}
+{% endblock %}
