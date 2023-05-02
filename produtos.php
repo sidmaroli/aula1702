@@ -8,7 +8,7 @@
     $template = $twig->load('produtos.html');
 
 
-    $produtos = [
+    /**$produtos = [
         [
             'nome' => 'Chinelo',
             'preco' => 30,
@@ -25,7 +25,7 @@
             'nome' => 'Automovéis simples',
             'preco' => 3000.2,
         ]
-    ];
+    ];**/
 
     echo $template->render([
         'titulo' => 'Produtos',
