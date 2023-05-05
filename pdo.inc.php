@@ -1,5 +1,5 @@
 <?php
 
-//$pdo = new PDO('mysql:host=localhost;dbname=sistematwig', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=sistematwig', 'root', '');
 
-$conex = new PDO('mysql:host=localhost;dbname=produtos', 'root', '');
+//$conex = new PDO('mysql:host=localhost;dbname=produtos', 'root', '');
